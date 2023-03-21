@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div  className='d-flex justify-content-center my-3'>
         
-       <button type='button' className='btn btn-info' onClick={()=>signInWithGoogle()}>Google</button>
+       <button type='button' className='btn btn-primary' onClick={()=>signInWithGoogle()}>Google</button>
     </div>
   )
 }
