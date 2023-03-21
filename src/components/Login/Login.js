@@ -1,10 +1,23 @@
 
 import React from 'react'
 import auth from './../firebase/firebase';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle, useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate, useLocation } from 'react-router';
 
 const Login = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
+
+    const [user, loading, error] = useAuthState(auth);
+
+    let navigate = useNavigate();
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+    if (user) {
+      navigate(from, { replace: true });
+    }
+    
   return (
     <div  className='d-flex justify-content-center my-3'>
         
