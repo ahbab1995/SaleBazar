@@ -5,7 +5,7 @@ import auth from './../firebase/firebase';
 
 const Privetroute = ({children }) => {
     const [user, loading] = useAuthState(auth);
-
+    
     let location = useLocation()
 
     if(loading)

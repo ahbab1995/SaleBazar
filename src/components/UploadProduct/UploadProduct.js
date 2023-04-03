@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from "react-toastify";
 import auth from './../firebase/firebase';
 
 const UploadProduct = () => {
@@ -28,6 +29,7 @@ const UploadProduct = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
+        toast(data.success)
         e.target.reset();
       });
   }
@@ -36,7 +38,9 @@ const UploadProduct = () => {
     <div >
       <h1 className="text-center my-3">UploadProduct</h1>
       <div className="w-50 mx-auto">
+     
         <Form onSubmit={handleUpload}>
+        <ToastContainer />
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Product Name</Form.Label>
             <Form.Control type="text" name="name" placeholder="Product Name" />           
