@@ -7,7 +7,7 @@ import Products from './components/Products/Products';
 import UploadProduct from './components/UploadProduct/UploadProduct';
 import Orderlist from './components/Orderlist/Orderlist';
 import Login from './components/Login/Login';
-import { Container } from 'react-bootstrap/Container';
+import 'react-toastify/dist/ReactToastify.css';
 import Privetroute from './components/Privetroute/Privetroute';
 
 
